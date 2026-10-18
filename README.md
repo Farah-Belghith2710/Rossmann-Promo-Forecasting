@@ -28,9 +28,11 @@ def results_markdown(metrics: dict, reports_folder: str = "reports") -> str:
     base = metrics["accuracy_on_test_weeks"]["median_baseline"]
     lgb = metrics["accuracy_on_test_weeks"]["lightgbm"]
     uplift = metrics["promo_uplift"]["overall"]["model_uplift_pct"]
+    lower = 100 * (1 - lgb["rmspe"] / base["rmspe"])
     return "\n".join([
-        f"- Forecast error (RMSPE): **{lgb['rmspe']:.3f}**, vs {base['rmspe']:.3f} for a simple baseline",
-        f"- Promotions raise sales by about **{uplift:.0f}%** on promotion days",
+        f"- The forecast's error is about **{lower:.0f}% lower** than a simple baseline's "
+        f"({lgb['rmspe']:.3f} vs {base['rmspe']:.3f} RMSPE).",
+        f"- Promotions raise sales by about **{uplift:.0f}%** on promotion days.",
         "",
         f"![Daily sales of all stores: actual sales vs forecast]({reports_folder}/figures/forecast_total.png)",
     ])
