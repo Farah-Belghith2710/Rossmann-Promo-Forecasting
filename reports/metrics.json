@@ -1,0 +1,227 @@
+{
+  "data": {
+    "rows": 1017209,
+    "stores": 1115,
+    "first_day": "2013-01-01",
+    "last_day": "2015-07-31",
+    "unreadable_rows": 0,
+    "open_days_without_sales": 54,
+    "closed_days": 172817,
+    "stores_with_missing_days": 180,
+    "duplicate_store_days": 0,
+    "stores_without_competition_distance": 3,
+    "stores_in_store_file": 1115
+  },
+  "split": {
+    "train_period": "2013-01-01 to 2015-06-19",
+    "test_period": "2015-06-20 to 2015-07-31",
+    "train_store_days": 804056,
+    "test_store_days": 40282,
+    "test_stores": 1115
+  },
+  "accuracy_on_test_weeks": {
+    "median_baseline": {
+      "rmspe": 0.14494286493220546,
+      "mape": 0.10803764054838233,
+      "rmse": 1149.0523143378198
+    },
+    "lightgbm": {
+      "rmspe": 0.10862280389009535,
+      "mape": 0.07938862288366402,
+      "rmse": 796.5245937139941
+    }
+  },
+  "lightgbm": {
+    "trees": 4000,
+    "params": {
+      "objective": "regression",
+      "learning_rate": 0.05,
+      "num_leaves": 63,
+      "min_data_in_leaf": 100,
+      "feature_fraction": 0.8,
+      "bagging_fraction": 0.8,
+      "bagging_freq": 1,
+      "lambda_l2": 1.0,
+      "seed": 42,
+      "deterministic": true,
+      "force_row_wise": true,
+      "verbose": -1
+    },
+    "features": [
+      "DayOfWeek",
+      "Day",
+      "Month",
+      "Year",
+      "WeekOfYear",
+      "DayOfYear",
+      "Promo",
+      "SchoolHoliday",
+      "StateHoliday",
+      "DaysToHoliday",
+      "DaysAfterHoliday",
+      "DaysToClosure",
+      "DaysAfterClosure",
+      "StoreType",
+      "Assortment",
+      "CompetitionDistance",
+      "CompetitionOpenMonths",
+      "CompetitionActive",
+      "Promo2",
+      "Promo2Weeks",
+      "IsPromo2Month",
+      "StoreAvgSales",
+      "StoreAvgCustomers",
+      "StoreSalesPerCustomer",
+      "StorePromoRatio",
+      "StoreDowRatio"
+    ]
+  },
+  "promo_uplift": {
+    "weekdays_used": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "overall": {
+      "store_days": 33407.0,
+      "model_uplift_pct": 33.70962210980939,
+      "extra_sales_per_store_day": 2055.739915789581,
+      "observed_uplift_pct": 42.04969463126695
+    },
+    "by_store_type": [
+      {
+        "StoreType": "a",
+        "store_days": 18017.0,
+        "model_uplift_pct": 32.3877755242576,
+        "extra_sales_per_store_day": 1989.7049399396449,
+        "observed_uplift_pct": 40.20221675503619
+      },
+      {
+        "StoreType": "b",
+        "store_days": 510.0,
+        "model_uplift_pct": 15.492634564506114,
+        "extra_sales_per_store_day": 1529.6787801974644,
+        "observed_uplift_pct": 22.610096648823983
+      },
+      {
+        "StoreType": "c",
+        "store_days": 4440.0,
+        "model_uplift_pct": 34.65827400130317,
+        "extra_sales_per_store_day": 2033.44872917828,
+        "observed_uplift_pct": 45.422433639135406
+      },
+      {
+        "StoreType": "d",
+        "store_days": 10440.0,
+        "model_uplift_pct": 37.1527658045975,
+        "extra_sales_per_store_day": 2204.879399275639,
+        "observed_uplift_pct": 45.56006636782297
+      }
+    ],
+    "by_weekday": [
+      {
+        "DayOfWeek": 1,
+        "store_days": 6682.0,
+        "model_uplift_pct": 52.58571645636356,
+        "extra_sales_per_store_day": 3355.879430930632,
+        "observed_uplift_pct": 56.1436758258504
+      },
+      {
+        "DayOfWeek": 2,
+        "store_days": 6682.0,
+        "model_uplift_pct": 39.239713650147536,
+        "extra_sales_per_store_day": 2336.574332186792,
+        "observed_uplift_pct": 57.229292194813986
+      },
+      {
+        "DayOfWeek": 3,
+        "store_days": 6682.0,
+        "model_uplift_pct": 28.544593711640577,
+        "extra_sales_per_store_day": 1666.6091829149236,
+        "observed_uplift_pct": 36.105254473048554
+      },
+      {
+        "DayOfWeek": 4,
+        "store_days": 6680.0,
+        "model_uplift_pct": 27.075370385417543,
+        "extra_sales_per_store_day": 1609.6100933783537,
+        "observed_uplift_pct": 29.22491925925741
+      },
+      {
+        "DayOfWeek": 5,
+        "store_days": 6681.0,
+        "model_uplift_pct": 20.555283986990112,
+        "extra_sales_per_store_day": 1309.7813706970483,
+        "observed_uplift_pct": 31.094332653465926
+      }
+    ],
+    "by_assortment": [
+      {
+        "Assortment": "a",
+        "store_days": 17759.0,
+        "model_uplift_pct": 35.328066060899,
+        "extra_sales_per_store_day": 2019.4677112447685,
+        "observed_uplift_pct": 43.31232999780106
+      },
+      {
+        "Assortment": "b",
+        "store_days": 270.0,
+        "model_uplift_pct": 7.5694244986945325,
+        "extra_sales_per_store_day": 675.6497610541629,
+        "observed_uplift_pct": 14.977754864333303
+      },
+      {
+        "Assortment": "c",
+        "store_days": 15378.0,
+        "model_uplift_pct": 32.694617678869605,
+        "extra_sales_per_store_day": 2121.859204532583,
+        "observed_uplift_pct": 41.43963404524267
+      }
+    ]
+  },
+  "top_features": [
+    {
+      "feature": "StoreAvgSales",
+      "gain_share": 0.5645609817370789
+    },
+    {
+      "feature": "Promo",
+      "gain_share": 0.1608715362590167
+    },
+    {
+      "feature": "StoreDowRatio",
+      "gain_share": 0.10912661413501162
+    },
+    {
+      "feature": "DayOfYear",
+      "gain_share": 0.022571673527849622
+    },
+    {
+      "feature": "StoreAvgCustomers",
+      "gain_share": 0.02101993570359264
+    },
+    {
+      "feature": "Day",
+      "gain_share": 0.019063760322919288
+    },
+    {
+      "feature": "DayOfWeek",
+      "gain_share": 0.017514459231823116
+    },
+    {
+      "feature": "DaysToHoliday",
+      "gain_share": 0.015724520674088135
+    },
+    {
+      "feature": "WeekOfYear",
+      "gain_share": 0.014429152920704942
+    },
+    {
+      "feature": "DaysAfterHoliday",
+      "gain_share": 0.011177355457017325
+    }
+  ],
+  "runtime_seconds": 262.2
+}

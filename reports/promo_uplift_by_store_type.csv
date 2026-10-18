@@ -1,0 +1,5 @@
+StoreType,store_days,model_uplift_pct,extra_sales_per_store_day,observed_uplift_pct
+a,18017.0,32.3878,1989.7049,40.2022
+b,510.0,15.4926,1529.6788,22.6101
+c,4440.0,34.6583,2033.4487,45.4224
+d,10440.0,37.1528,2204.8794,45.5601

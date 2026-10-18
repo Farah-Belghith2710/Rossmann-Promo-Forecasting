@@ -1,0 +1,6 @@
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-q"
+# PySpark's toPandas still passes copy=False, which pandas 3 warns about; it is harmless.
+filterwarnings = ["ignore:The copy keyword is deprecated"]

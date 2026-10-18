@@ -1,0 +1,15 @@
+# Kaggle data: download it yourself (see README), don't commit it
+data/raw/*
+!data/raw/.gitkeep
+data/sample/
+reports/sample/
+
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+spark-warehouse/
+metastore_db/
+derby.log
